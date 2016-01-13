@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>H5单页面切换骨架</title>
+    <meta name="viewport" charset="utf-8" content="width=device-width,
+    initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=1.0">
+    <link rel="stylesheet" href="dist/app.css">
+    <script src="dist/app.min.js"></script>
+</head>
+<body>
+    <div class="pageview" id="-main-view">
+        <h3>这是首页</h3>
+        <div title="-list-view" class="button">Next View</div>
+    </div>
+    <div class="pageview" id="-list-view" style="display: none">
+        <h3>这是列表页面</h3>
+        <div class="button">Last View</div>
+        <div title="-detail-view" class="button">Next View</div>
+    </div>
+    <div class="pageview" id="-detail-view" style="display: none">
+        <h3>这是列表详情页面</h3>
+        <div class="button">Last View</div>
+    </div>
+</body>
+</html>
