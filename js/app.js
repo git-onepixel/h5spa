@@ -30,19 +30,24 @@
            currentView.style.webkitTransform = currentViewStart;
            applyView.style.display = "";
 
-           setTimeout(function(){
+           var t1 = setTimeout(function(){
                applyView.style.webkitTransform = applyViewEnd;
                currentView.style.webkitTransform = currentViewEnd;
            },200);
-           setTimeout(function(){
+           var t2 = setTimeout(function(){
                currentView.style.display = "none";
-           },500);
 
-           currentViewId = pageId;
+               currentViewId = pageId;
 
-           if (direction === 'left'){
-               window.location.hash = currentViewId.substring(1);
-           }
+               if (direction === 'left'){
+                   window.location.hash = currentViewId.substring(1);
+               }
+
+               window.clearTimeout(t1);
+               window.clearTimeout(t2);
+           },600);
+
+
        },
        initViewPool:function(){
            var views = document.querySelectorAll(".pageview");
@@ -62,10 +67,11 @@
            document.addEventListener("touchend",function(){
                if (!isMove){
                    var target = event.target;
-                   if (target.className === "button"){
-                       target.title?
-                       that.forward(target.title)
-                       :history.back();
+                   if (target.className === "right-arrow"){
+                       that.forward(target.title);
+                   }
+                   if (target.className === "left-arrow"){
+                           history.back();
                    }
                }
            },false);

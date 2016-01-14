@@ -14,20 +14,39 @@ html,body{
    width: 100%;
    height: 100%;
    overflow: hidden;
-   -webkit-transition: 0.3s ease-out -webkit-transform;
-   -webkit-transform:translateX(0%)
+   -webkit-transition: 0.4s ease-out -webkit-transform;
+   -webkit-transform:translateX(0%);
 }
-.button{
-    width: 85%;
-    margin: 1em auto;
-    background: #2076E4;
-    padding: 0.8em 0;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
+.right-arrow{
+    position: absolute;
+    border: 3px solid #fff;
+    height: 2.5em;
+    width: 2.5em;
+    -webkit-transform: rotate(45deg);
+    border-left: none;
+    border-bottom: none;
+    right: 2em;
+    top: 50%;
+    margin-top: -3em;
+}
+.left-arrow{
+    position: absolute;
+    border: 3px solid #fff;
+    height: 2.5em;
+    width: 2.5em;
+    -webkit-transform: rotate(-135deg);
+    border-left: none;
+    border-bottom: none;
+    left: 2em;
+    top: 50%;
+    margin-top: -3em;
 }
 h3{
     text-align: center;
+    font-family: Microsoft YaHei;
+    color: #fff;
+    font-size: 1.7em;
+    font-weight: normal;
 }
 
 @media screen and (max-width: 360px) {
