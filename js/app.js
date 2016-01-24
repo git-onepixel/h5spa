@@ -49,9 +49,7 @@
 
                window.clearTimeout(t1);
                window.clearTimeout(t2);
-           },500);
-
-
+           },600);
        },
        initViewPool:function(){
            var views = document.querySelectorAll(".pageview");
