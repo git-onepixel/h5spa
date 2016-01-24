@@ -3,6 +3,9 @@
         viewPool = {},
     app = {
        init:function(th){
+           if(/(windows)/i.test(navigator.userAgent)){
+               location.href = 'views/pc.html';
+           }
            document.addEventListener('DOMContentLoaded',function(){
                app.initViewPool();
                app.bindTapEvent();
@@ -34,6 +37,7 @@
                applyView.style.webkitTransform = applyViewEnd;
                currentView.style.webkitTransform = currentViewEnd;
            },200);
+
            var t2 = setTimeout(function(){
                currentView.style.display = "none";
 
@@ -75,6 +79,8 @@
                    }
                }
            },false);
+
+
        },
        bindHashEvent:function(){
            var that = this;
