@@ -49,7 +49,7 @@
 
                window.clearTimeout(t1);
                window.clearTimeout(t2);
-           },400);
+           },500);
 
 
        },
