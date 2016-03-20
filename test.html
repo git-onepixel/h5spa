@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+var data = [1,2,3];
+
+data.slice(0); //[1,2,3] 提取的元素
+data.slice(1,2); //[2] 提取的元素
+
+
+data.splice(2,1);//[3]->被删除的元素 data->[1,2]
+data.splice(2,2,4,5); //[2,3]->被删除的元素 data->[1,4,5]
+data.splice(2,2,4,5,6); //[2,3]->被删除的元素 data->[1,4,5,6]
+
+
+
+
+if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+        var aArgs = Array.prototype.slice.call(arguments, 1),
+            fToBind = this, //this在这里指向的是目标函数
+            fBound = function () {
+                return fToBind.apply(
+                    //如果外部执行var obj = new fBound(),则将obj作为最终的this，放弃使用oThis
+                    this instanceof fToBind
+                            ? this  //此时的this就是new出的obj
+                            : oThis || this, //如果传递的oThis无效，就将fBound的调用者作为this
+
+                    //将通过bind传递的参数和调用时传递的参数进行合并，并作为最终的参数传递
+                    aArgs.concat(Array.prototype.slice.call(arguments)));
+            };
+
+        //将目标函数的原型对象拷贝到新函数中，因为目标函数有可能被当作构造函数使用
+        fBound.prototype = this.prototype;
+
+        //返回fBond的引用，由外部按需调用
+        return fBound;
+    };
+}
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
